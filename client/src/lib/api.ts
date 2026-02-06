@@ -6,7 +6,7 @@ export const useApi = () => {
     const { organization } = useOrganization();
 
     const api = axios.create({
-        baseURL: "http://localhost:5000/api"
+        baseURL: "https://status-page-2-neqa.onrender.com"
     });
 
     api.interceptors.request.use(async config => {
