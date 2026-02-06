@@ -22,9 +22,10 @@ app.use(express.json());
 app.use("/api/services", serviceRoutes(io));
 app.use("/api/incidents", incidentRoutes(io));
 app.use("/api/public", publicRoutes);
+const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    server.listen(5000, () => console.log("✅ Backend running on http://localhost:5000"));
+    server.listen(PORT, () => console.log("✅ Backend running on port ${PORT}"));
   })
   .catch(err => console.error("Mongo error:", err));
